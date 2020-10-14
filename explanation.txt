@@ -1,0 +1,10 @@
+JAVA
+
+
+Parameter = value given to a method
+Variables:
+1. value-type variable = int or double hold their actual values
+2. reference-type variable = ArrayList<> ->contains reference to the location that contains value relating to the variable
+3. An Array contains limited number of indices for values
+4. values in an array is called elements
+

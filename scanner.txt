@@ -1,0 +1,11 @@
+JAVA
+
+Scanner
+
+can only be instantiated once.
+but can be used for many.
+
+Scanner scanner = new Scanner(System.in) ---> hanya 1 kali bisa digunakan
+int num = Integer.valueOf(scanner.nextLine()) --> kalau mau derive int dari user input
+String sample = scanner.nextLine() --> kalau derive string biasa
+double num = Double.valueOf(scanner.nextLine());

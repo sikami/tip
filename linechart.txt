@@ -1,0 +1,44 @@
+JAVA
+
+javafx
+
+how to put Map into linechart
+
+Override
+public void start(Stage stage) {
+    // create the x and y axes that the chart is going to use
+    NumberAxis xAxis = new NumberAxis();
+    NumberAxis yAxis = new NumberAxis();
+
+    // set the titles for the axes
+    xAxis.setLabel("Year");
+    yAxis.setLabel("Relative support (%)");
+
+
+    // create the line chart. The values of the chart are given as numbers
+    // and it uses the axes we created earlier
+    LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
+    lineChart.setTitle("Relative support in the years 1968-2008");
+
+
+
+// the axes and the line chart created previously
+
+// data has been read earlier -- the following object contains the data
+Map<String, Map<Integer, Double>> values = // created elsewhere
+
+// go through the parties and add them to the chart
+values.keySet().stream().forEach(party -> {
+    // a different data set for every party
+    XYChart.Series data = new XYChart.Series();
+    data.setName(party);
+
+    // add the party's support numbers to the data set
+    values.get(party).entrySet().stream().forEach(pair -> {
+        data.getData().add(new XYChart.Data(pair.getKey(), pair.getValue()));
+    });
+
+    // and add the data set to the chart
+    lineChart.getData().add(data);
+});
+

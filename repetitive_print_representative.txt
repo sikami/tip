@@ -1,0 +1,24 @@
+JAVA
+
+Print repetitive result in toString()
+printing hasil repetisi di method toString() yang dihasilkan oleh for Loop
+
+- pake StringBuilder class
+- contoh:
+
+ public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Organism mov : entries) {
+            sb.append(mov.toString() + "\n");
+        }
+        return sb.toString();
+    }
+
+hasil kalau print kelasnya:
+List<Herd> herds;
+sout(herds)
+
+
+x:2, y:3
+x:30, y: 5
+x 50: y: 20 

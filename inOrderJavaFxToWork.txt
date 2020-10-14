@@ -1,0 +1,12 @@
+- make sure language and jdk is level
+-- add library of javafx that is the same level to module in the setting, in the sources
+--create module-info.java in src folder 
+
+
+
+module test {
+    requires javafx.fxml;
+    requires javafx.controls;
+
+    opens ticTacToe;
+}

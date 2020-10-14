@@ -1,0 +1,23 @@
+JAVA
+
+for loop
+
+for loop tidak berhubungan dengan asosiasi apapun, hanya abstrak dan tidak terattach oleh apapun.
+for loop itu tergantung kita penggunaannya, apa kita mau bikin grafik 2x2, 3x3, terserah.
+
+apabila ada image source yang mau dikecilkan, 
+kita tidak for loop sumber image source itu, jadi tidak y < imageSource
+kita for loop berdasarkan image baru yang mau kita create.
+
+contoh:
+List<String> test = new ArrayList<>();
+for (String x : test) {
+//code here
+}
+
+
+iterate HashMap
+
+Map<String, Integer> test = new HashMap<>();
+for (Map.Entry<String, Integer> x : test.EntrySet()) {
+}

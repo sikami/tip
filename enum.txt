@@ -1,0 +1,51 @@
+JAVA
+
+Enum
+
+
+- numeric identifier index or an enum can be found with ordinal()
+- tidak boleh ada public constructor
+
+
+- contoh: 
+
+public enum Suits {
+    DIAMOND, CLUB, HEART, SPADE
+}
+
+System.out.println(Suit.DIAMOND.ordinal());
+System.out.println(Suit.HEART.ordinal());
+
+>0
+>3
+
+
+
+----------------
+contoh
+----------------
+
+public enum Color {
+    // constructor parameters are defined as
+    // the constants are enumerated
+    RED("#FF0000"),
+    GREEN("#00FF00"),
+    BLUE("#0000FF");
+
+    private String code;        // object reference variable
+
+    private Color(String code) { // constructor
+        this.code = code;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+}
+
+
+System.out.println(Color.GREEN.getCode());
+>#00FF00
+
+
+

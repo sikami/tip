@@ -1,0 +1,15 @@
+JAVA
+
+List
+
+
+- method contains ->digunakan utk ngecek value di listnya
+	-return true or false
+
+- add()
+- list.size()
+- get(i) ->retrieve value from index
+-remove(i) ->remove value from index
+
+
+

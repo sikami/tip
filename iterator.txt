@@ -1,0 +1,66 @@
+JAVA
+
+Iterator
+
+- ArrayList dan semua Collection mengimplementasikan iterable Interface, bisa di iterate dengan iterator
+- untuk menghapus isi dari arraylist, atau list etc, butuh iterator, karena kalau pake foreach biasa di Stream() tidak bisa hapus
+
+- contoh:
+
+public void print() {
+    Iterator<Card> iterator = cards.iterator();
+
+    while (iterator.hasNext()) {
+        System.out.println(iterator.next());
+    }
+}
+
+-----------
+ini juga bisa digunakan
+-----------
+
+public void print(){
+    Iterator<Card> iterator = cards.iterator();
+
+    while (iterator.hasNext()) {
+        Card nextInLine = iterator.next();
+        System.out.println(nextInLine);
+    }
+}
+
+
+-----------
+metode salah // gak bisa di remove kalau pake foreach langsung dari List nya
+-----------
+
+public class Hand {
+    // ...
+
+    public void removeWorst(int value) {
+        this.cards.stream().forEach(card -> {
+            if (card.getValue() < value) {
+                cards.remove(card);
+            }
+        });
+    }
+}
+
+
+-----------
+yang benar
+-----------
+
+public class Hand {
+    // ...
+
+    public void removeWorst(int value) {
+        Iterator<Card> iterator = cards.iterator();
+
+        while (iterator.hasNext()) {
+            if (iterator.next().getValue() < value) {
+                // removing from the list the element returned by the previous next-method call
+                iterator.remove();
+            }
+        }
+    }
+}

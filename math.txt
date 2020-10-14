@@ -1,0 +1,20 @@
+JAVA
+
+Math
+
+Math.sqrt(number) -> is to determine square root of a number.
+Math.pow(number, pangkat) 
+
+example:
+
+Math.sqrt(9)
+
+> 3.0
+
+result is in double.
+
+-----
+Math.pow(2,3) --2 pangkat 3
+> 8.0
+
+

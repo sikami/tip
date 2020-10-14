@@ -1,0 +1,13 @@
+JAVA
+
+While
+
+di statement While, harus ada breaknya
+
+while (true)
+   if (x < 2)
+       break;
+
+x++;
+
+

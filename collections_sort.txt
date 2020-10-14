@@ -1,0 +1,33 @@
+JAVA
+
+
+Collections Sort (menggunakan Lambda)
+-mengimplementasikan Comparator<namaKelas>
+
+contoh:
+
+ArrayList<Person> persons = new ArrayList<>();
+persons.add(new Person("Ada Lovelace", 1815));
+persons.add(new Person("Irma Wyman", 1928));
+persons.add(new Person("Grace Hopper", 1906));
+persons.add(new Person("Mary Coombs", 1929));
+
+persons.stream().sorted((p1, p2) -> {
+    return p1.getBirthYear() - p2.getBirthYear();
+}).forEach(p -> System.out.println(p.getName()));
+
+System.out.println();
+
+persons.stream().forEach(p -> System.out.println(p.getName()));
+
+System.out.println();
+
+-----------------------------------
+//dibawah ini sorting dari kecil ke besar
+//Stream digunakan untuk print hasil
+-----------------------------------
+
+
+Collections.sort(persons, (p1, p2) -> p1.getBirthYear() - p2.getBirthYear());
+
+persons.stream().forEach(p -> System.out.println(p.getName()));

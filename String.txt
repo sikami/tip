@@ -1,0 +1,11 @@
+JAVA
+
+
+String
+
+
+untuk perbandingan use:
+.equals("test");
+
+untuk split string:
+text.split(",");

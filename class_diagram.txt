@@ -1,0 +1,31 @@
+JAVA
+
+class diagrams
+
+
+[<<interface>> Readable]
+Methods are described just like they are for a class.
+
+Implementing an interface is shown as a dashed arrow with a triangle arrowhead. Below, we describe a situation where Book implements interface Readable.
+
+[<<interface>> Readable]
+
+
+
+[Book] - - - -> [<<interface>> Readable]
+
+----------------------
+
+
+______________
+|<<abstract>> |		dash and empty arrow means inherit boxWithMax										
+|   Box	      |		extends Box
+|_____________|	 <| ---------------   ______________________
+				      |  BoxWithMaxWeight   |	arrow with star means BoxWMW knows Item and have alot items
+				      |_____________________| _______________*>__________________________
+				      | - maximumWeight: int|			|    Item		|
+				      |_____________________|			|_______________________|
+										|  +name:String		|
+										|_______________________|
+BoxWithMaxWeight
+theres array list of items
