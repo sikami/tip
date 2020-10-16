@@ -11,5 +11,5 @@ List
 - get(i) ->retrieve value from index
 -remove(i) ->remove value from index
 
-
+-isEmpty()
 

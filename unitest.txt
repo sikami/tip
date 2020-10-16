@@ -1,0 +1,186 @@
+JAVA
+
+test
+
+ex:
+
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+
+public class CalculatorTest {
+
+    @Test
+    public void calculatorInitialValueZero() {
+        Calculator calculator = new Calculator();
+        assertEquals(0, calculator.getValue());
+    }
+}
+
+
+
+---- longer test
+
+package com.junittest;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class UtilitiesTest {
+
+    private Utilities utilities;
+
+    @BeforeEach
+    public void setup() {
+        utilities = new Utilities();
+    }
+
+    @Test
+    void everyNthChar() {
+        char[] input = {'h', 'e', 'l', 'l', 'o'};
+        char[] result = {'e', 'l'};
+        assertArrayEquals(result, utilities.everyNthChar(input, 2));
+        char[] output = utilities.everyNthChar(new char[] {'h', 'e', 'l', 'l', 'o'}, 8);
+        assertArrayEquals(output, utilities.everyNthChar(input, 8));
+    }
+
+    @Test
+    void removePairs() {
+        String expected = "ABCDEF";
+        String test = "AABCDDEFF";
+        assertEquals(expected, utilities.removePairs(test));
+        assertEquals("ABCABDEF", utilities.removePairs("ABCCABDEEF"));
+        assertNull(utilities.removePairs(null));
+        assertEquals("A", utilities.removePairs("A"));
+        assertEquals("", utilities.removePairs(""));
+
+    }
+
+    @Test
+    void converter() {
+        assertEquals(300, utilities.converter(10,5));
+        Assertions.assertThrows(ArithmeticException.class, () -> {
+            assertEquals(300, utilities.converter(10,0));
+        });
+    }
+
+    @Test
+    void nullIfOddLength() {
+        //pass a string with even length
+        String nonNull = utilities.nullIfOddLength("123456");
+        assertNotNull(nonNull);
+
+        //pass a string with odd length
+        String nulls = utilities.nullIfOddLength("1");
+        assertNull(nulls);
+    }
+}
+
+
+--- parameterized test
+
+public class UtilitiesParameterizedTest {
+
+    private static Utilities utilities;
+
+    @BeforeAll
+    static void setup() {
+        utilities = new Utilities();
+    }
+
+    static Stream<Arguments> testConditioning() {
+        return Stream.of(
+                Arguments.of("ABCDEFF", "ABCDEF"),
+                Arguments.of("AB88EFFG", "AB8EFG"),
+                Arguments.of("112233445566", "123456"),
+                Arguments.of("ZYZQQB", "ZYZQB"),
+                Arguments.of("A", "A")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("testConditioning")
+    void removePairs(String input, String output) {
+        assertEquals(output, utilities.removePairs(input));
+    }
+
+}
+
+
+
+-----
+
+ini contoh kelasnya sebelum dibuat unittest
+
+public class Utilities {
+
+    //return a char array every nth char
+    // when length of source array < n, return source array
+
+    public char[] everyNthChar(char[] sourceArray, int n) {
+        if(sourceArray.length < n) {
+            return sourceArray;
+        }
+
+        int returnedLength = sourceArray.length / n;
+        char[] result = new char[returnedLength];
+        int index = 0;
+
+        for(int i = n-1; i < sourceArray.length; i++) {
+            try {
+                result[index++] = sourceArray[i];
+            } catch (ArrayIndexOutOfBoundsException e) {
+                break;
+            }
+
+        }
+        return result;
+    }
+
+    public String removePairs(String source) {
+        //if length < 2, there wont be pairs
+        if(source == null || source.length() < 2) {
+            return source;
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+        char[] string = source.toCharArray();
+        for(int i = 0; i < string.length - 1; i++) {
+            if(string[i] != string[i+1]) {
+                stringBuilder.append(string[i]);
+            }
+        }
+        stringBuilder.append(string[string.length - 1]);
+        return stringBuilder.toString();
+
+    }
+
+    public int converter(int a, int b) {
+            return (a/b) + (a * 30) - 2;
+    }
+
+    public String nullIfOddLength(String source) {
+        if(source.length() % 2 == 0) {
+            return source;
+        }
+        return null;
+    }
+}
+
+
+
+----
+TEST DRIVEN DEVELOPMENT
+
+Test-driven development is a software development process that's based on constructing a piece of software in small iterations. In test-driven software development, the first thing a programmer always does is write an automatically-executable test, which tests a single piece of the computer program.
+
+
+Test-driven software development consists of five steps that are repeated until the functionality of the program is complete.
+
+1. Write a test. The programmer decides which program functionality to test and writes a test for it.
+2. Run the tests and check if the tests pass. When a new test is written, the tests are run. If the test passes, the test is most likely 		erroneous and should be corrected - the test should only test functionality that hasn't yet been implemented.
+3. Write the functionality that meets the test's requirements. The programmer implements functionality that only meets the test requirements. 		Note: this doesn't do things that the test does not require - functionality is only added in small increments.
+4. Perform the tests. If the tests fail, there is likely to be an error in the functionality written. Correct the functionality - or, if there 		is no error in the functionality, fix the latest test that was performed.
+5. Repair the internal structure of the program. As the size of the program increases, its internal structure is adjusted as needed. Methods 		that are too long are broken down into multiple parts and classes representing concepts are isolated. The tests are not modified, but 		are instead used to verify the correctness of the changes made to the program's internal structure - if a change in the program 		structure changes the functionality of the program, the tests will produce a warning and the programmer can remedy the situation.

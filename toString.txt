@@ -1,0 +1,59 @@
+JAVA
+
+toString()
+
+
+used as a String representative
+
+public String toString() {
+	return "this is " + this.getName(); 
+}
+
+if needs to append string use 
+StringBuilder
+
+public String toString() {
+	StringBuilder sb = new StringBuilder();
+	for (String word : text) {
+		sb += word + "\n";
+	}
+
+	return sb.toString();
+
+}
+
+>John
+Nona
+Tono
+Siti
+
+
+-----
+another example:
+
+Printing object from a list
+
+public class AmusementParkRide {
+    private String name;
+    private int minimumHeight;
+    private int visitors;
+    private ArrayList<Person> riding;
+
+    // ...
+
+    public String toString() {
+        // let's form a string from all the people on the list
+        String onTheRide = "";
+        for (Person person: riding) {
+            onTheRide = onTheRide + person.getName() + "\n";
+        }
+
+        // we return a string describing the object
+        // including the names of those on the ride
+        return this.name + ", minimum height requirement: " + this.minimumHeight +
+            ", visitors: " + this.visitors + "\n" +
+            "riding:\n" + onTheRide;
+    }
+}
+
+

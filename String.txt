@@ -9,3 +9,20 @@ untuk perbandingan use:
 
 untuk split string:
 text.split(",");
+
+utk menemukan character at specified index
+charAt(index)
+
+--ex:
+String text = "Hello world!";
+char character = text.charAt(0);
+System.out.println(character);
+
+
+length()
+
+String word = "equisterian";
+int length = word.length();
+> 11
+
+

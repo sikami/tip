@@ -7,4 +7,15 @@ Variables:
 2. reference-type variable = ArrayList<> ->contains reference to the location that contains value relating to the variable
 3. An Array contains limited number of indices for values
 4. values in an array is called elements
-
+5. Class defines attributes of objects
+	- instance variables = information related to a class
+	- values of instance variable = defines internal state of an individual object
+6. method = piece of source code writen inside a class thats been named and has ability to be called
+7. constructor = object instantiation
+8. instance variable = variables defined inside the class
+9. private - encapsulation = varibales are hidden inside the object
+10. static modifier = method doesnt belong to an object, cannot be used to access any variables belongs to object
+11. If a method receives as parameters all the variables whose values ​​it uses, it can have a static modifier.
+12. OOP is about isolating concepts into their own entities (creating abstraction)
+13. Program is built from small and distinct objects that work together
+14. Object refers to independent entity contains both data (instance variables) and behavior (method)

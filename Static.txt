@@ -1,0 +1,13 @@
+JAVA
+
+
+Static modifier
+
+if starting using object, static modifier is banned
+
+instance methods = methods that is not static (can use this. modifier)
+class methods = methods that is static
+
+
+
+

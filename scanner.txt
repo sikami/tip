@@ -9,3 +9,27 @@ Scanner scanner = new Scanner(System.in) ---> hanya 1 kali bisa digunakan
 int num = Integer.valueOf(scanner.nextLine()) --> kalau mau derive int dari user input
 String sample = scanner.nextLine() --> kalau derive string biasa
 double num = Double.valueOf(scanner.nextLine());
+
+
+Scanning for file
+
+Scanner scanner = new Scanner(Paths.get(URI));
+
+//harus selalu di dalam try and resources atau try / catch block
+
+ex: 
+
+try (Scanner scanner = new Scanner(Paths.get("file.txt"))) {
+
+    // we read the file until all lines have been read
+    while (scanner.hasNextLine()) {
+        // we read one line
+        String row = scanner.nextLine();
+        // we print the line that we read
+        System.out.println(row);
+    }
+} catch (Exception e) {
+    System.out.println("Error: " + e.getMessage());
+}
+
+

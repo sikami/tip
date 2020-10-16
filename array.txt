@@ -1,0 +1,60 @@
+JAVA
+
+Array
+
+Sorting and array with sort()
+
+-- sample: 
+ArrayList<Integer> numbers = new ArrayList<>();
+numbers.add(8);
+numbers.add(3);
+numbers.add(7);
+System.out.println(numbers);
+Collections.sort(numbers);
+System.out.println(numbers);
+
+
+-- BINARY SEARCH
+only works in a sorted array
+
+sample code:
+
+public static int binarySearch(ArrayList<Book> books, long searchedId) {
+        int begin = 0;
+        int end = books.size()-1;
+
+        while (begin <= end) {
+            int middle = (begin + end) / 2;
+            
+            if (books.get(middle).getId() == searchedId) {
+                return middle;
+            }
+            
+            if(books.get(middle).getId() < searchedId) {
+                begin = middle + 1;
+            } 
+            
+            if (books.get(middle).getId() > searchedId) {
+                end = middle - 1;
+            } 
+        }
+        return -1;
+    }
+
+
+PSEUDO:
+
+Idea of binary search
+●Data is searched in an ordered array or list.
+●Search begins in the middle. 
+●The the value of the examined middle point is not the value that is searched for, we exclude half of the previous search are and move to examine the middle point of the remaining area.
+●If the examined middle value is the value that is searched for, we return the index of that middle point.
+●If the search area does not exist anymore (every index has been excluded from the list of possinilities), the value of -1 is returned. It indicates that the value in question cannot be found.
+
+
+
+Binary search
+●Halves the search area after each round. 
+●The number of examined places is a logarithmically connected to the size of the array / list; for instance, searching a list of 4294967296 elements can be accomplished by examining 32 indices (log2 4294967296 ~ 32).
+●Also works with strings; in this case the algorithm compares the order of individual characters in a string. Individial characters can be represented as char ttype numeric values.
+●Your own classes and objects need to be defined an ordering.
