@@ -1,0 +1,94 @@
+JAVA
+
+Stream
+
+-  sequence of events that is executed for each value in a collection.
+
+- A stream does not change the values ​​in the original data collection, but merely processes them.
+
+- to retain the transformations, they need to be compiled into another data collection.
+
+contoh:
+
+// We initialise the scanner and the list into which the input is read
+Scanner scanner = new Scanner(System.in);
+List<String> inputs = new ArrayList<>();
+
+// reading inputs
+while (true) {
+    String row = scanner.nextLine();
+    if (row.equals("end")) {
+        break;
+    }
+
+    inputs.add(row);
+}
+
+// counting the number of values divisible by three
+long numbersDivisibleByThree = inputs.stream()
+    .mapToInt(s -> Integer.valueOf(s))
+    .filter(number -> number % 3 == 0)
+    .count();
+
+// working out the average
+double average = inputs.stream()
+    .mapToInt(s -> Integer.valueOf(s))
+    .average()
+    .getAsDouble();
+
+// printing out the statistics
+System.out.println("Divisible by three " + numbersDivisibleByThree);
+System.out.println("Average number: " + average);
+
+
+
+
+--- Stream contoh
+
+// counting the number of values divisible by three
+long numbersDivisibleByThree = inputs.stream()
+    .mapToInt(s -> Integer.valueOf(s))
+    .filter(number -> number % 3 == 0)
+    .count();
+
+
+
+//A stream can be formed from any object that implements the Collection interface (e.g., ArrayList, HashSet, HashMap, ...) with the stream() method. The string values ​​are then converted ("mapped") to integer form using the stream's mapToInt(value -> conversion) method. The conversion is implemented by the valueOf method of the Integer class, which we've used in the past. We then use the filter (value -> filter condition) method to filter out only those numbers that are divisible by three for further processing. Finally, we call the stream's count() method, which counts the number of elements in the stream and returns it as a long type variable.
+
+
+
+contoh lain:
+
+// working out the average
+double average = inputs.stream()
+    .mapToInt(s -> Integer.valueOf(s))
+    .average()
+    .getAsDouble();
+
+contoh lain:
+// suppose we have a list of persons
+// ArrayList<Person> persons = new ArrayList<>();
+
+long count = persons.stream()
+    .filter(person -> person.getBirthYear() < 1970)
+    .count();
+System.out.println("Count: " + count);
+
+contoh lain:
+// suppose we have a list of persons
+// ArrayList<Person> persons = new ArrayList<>();
+
+long count = persons.stream()
+    .filter(person -> persons.getFirstName().startsWith("A"))
+    .count();
+System.out.println("Count: " + count);
+
+contoh lain:
+// suppose we have a list of persons
+// ArrayList<Person> persons = new ArrayList<>();
+
+persons.stream()
+    .map(person -> person.getFirstName())
+    .distinct()
+    .sorted()
+    .forEach(name -> System.out.println(name));

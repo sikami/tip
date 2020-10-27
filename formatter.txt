@@ -1,0 +1,27 @@
+JAVA
+
+formatting numbers
+
+NumberFormat num = NumberFormat.getNumberInstance();
+nf.format(123456789);
+>> 123,456,789
+
+NumberFormat currency = NumberFormat.getCurrencyInstance()
+currency.format(1234.50f)
+>> $1234.50
+
+NumberFormat pf = NUmberFormat.getPercentInstance()
+pf.format(0.75f)
+>> 75%
+
+----Formatting date ------
+java.time.LocalDateTime now = java.time.LocalDateTime.now();
+DateTimeFormatter df = DateTimeFormatter.ofPattern("MMM d, yyy")
+now.format(df)
+>>May 20, 2019
+
+DateTimeFormatter tf = DateTimeFormatter.ofPattern("h:m a")
+now.format(tf)
+>> 11:43 AM
+
+

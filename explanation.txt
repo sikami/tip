@@ -13,9 +13,12 @@ Variables:
 6. method = piece of source code writen inside a class thats been named and has ability to be called
 7. constructor = object instantiation
 8. instance variable = variables defined inside the class
-9. private - encapsulation = varibales are hidden inside the object
+9. private - encapsulation = variables are hidden inside the object (visible only to internal method of a class)
 10. static modifier = method doesnt belong to an object, cannot be used to access any variables belongs to object
 11. If a method receives as parameters all the variables whose values ​​it uses, it can have a static modifier.
 12. OOP is about isolating concepts into their own entities (creating abstraction)
 13. Program is built from small and distinct objects that work together
 14. Object refers to independent entity contains both data (instance variables) and behavior (method)
+15. public - encapsulation = variables can be used by subclasses 
+16. protected - variables /methods that are visible to subclasses but not everything else
+17. 

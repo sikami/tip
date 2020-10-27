@@ -1,0 +1,23 @@
+JAVA
+
+JSOUP for webscraping
+
+how to connect to website:
+
+try {
+            //connect to website
+            Document document = Jsoup.connect(this.urlAddress).userAgent("Mozilla/17.0").get();
+            Elements temp = document.select("td");
+
+
+for (Element title : temp) {
+ a = title.getElementsByClass("street-details-head-row").text();
+                b = title.getElementsByClass("street-details-row").text();
+                c = title.getElementsByClass("street-details-price-row").text();
+                dates = title.getElementsContainingText("2020").text();
+
+}
+
+
+---
+

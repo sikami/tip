@@ -1,0 +1,16 @@
+JAVA
+
+Reading File input
+
+untuk read file input use:
+open file with
+FileReader file = new FileReader("contoh.txt");
+
+BufferedReader buffer = new BufferedReader(file)
+
+while (line = (buffer.readLine()) != null) {
+//do this
+}
+
+buffer.close();
+

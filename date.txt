@@ -1,0 +1,15 @@
+JAVA
+
+dates
+
+LocalDateTime date = LocalDateTime.now();
+date.getMonth()
+date.getMonthValue()
+date.getDayOfWeek()
+date.getDayOfYear()
+date.getHour()
+date.getMinute()
+date.getSecond()
+
+
+

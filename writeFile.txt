@@ -1,0 +1,13 @@
+Java 
+
+writing files
+
+use:
+FileWriter file = new FileWriter("contoh.txt");
+BufferedWriter buffer = new BufferedWriter(file);
+
+buffer.write("halo");
+buffer.newLine()
+buffer.write("halo bandung");
+buffer.close();
+

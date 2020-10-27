@@ -57,3 +57,14 @@ public class AmusementParkRide {
 }
 
 
+-----
+calling toString on superclass
+
+-- use super
+ex:
+
+@Override
+public String toString() {
+    return super.toString() + "\n  And let's add my own message to it!";
+}
+

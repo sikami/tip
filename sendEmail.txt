@@ -1,0 +1,46 @@
+JAVA
+
+
+send email from Java
+
+1. Connect with the host email:
+
+- instantiate object Properties
+ Properties prop = new Properties();
+
+- then put all the necesary port and connection
+- if using Gmail:
+
+ properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.socketFactory.port", "465");
+        properties.put("mail.smtp.socketFactory.class",
+                "javax.net.ssl.SSLSocketFactory");
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.port", "465");
+
+
+- instantiate session
+ Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(getFrom(), getPassword());
+        } });
+
+
+2. Compose message (wrap in try and catch with AddressException and MessagingException)
+
+-use MimeMessage class
+  MimeMessage msg = new MimeMessage(session);
+
+-add recipient
+ msg.addRecipients(Message.RecipientType.TO, String.valueOf(new InternetAddress(getTo())));
+
+-set subject of email
+ msg.setSubject("Report of house sold number: " + this.count);
+
+-set message of email
+ msg.setText(getMessage(getResult()));
+
+
+3. Send message
+
+ Transport.send(msg);

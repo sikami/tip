@@ -1,0 +1,43 @@
+JAVA
+
+Interface
+
+Interfaces define behavior through method names and their return values.
+An Interface Is a Contract of Behaviour
+
+LIST, MAP, SET, COLLECTION is java built in interface
+
+---------------------------------------------------------------------
+When a class implements an interface, it signs an agreement. The agreement dictates that the class will implement the methods defined by the interface. If those methods are not implemented in the class, the program will not function.
+
+The interface defines only the names, parameters, and return values ​​of the required methods. The interface, however, does not have a say on the internal implementation of its methods. It is the responsibility of the programmer to define the internal functionality for the methods.
+
+---------------------------------------------------------------------
+
+-collection of methods and return value only, without implementation
+
+-ex:
+
+public interface Readable {
+    String read();
+}
+
+-> implementasinya:
+
+public class TextMessage implements Readable {
+    private String sender;
+    private String content;
+
+    public TextMessage(String sender, String content) {
+        this.sender = sender;
+        this.content = content;
+    }
+
+    public String getSender() {
+        return this.sender;
+    }
+
+    public String read() {
+        return this.content;
+    }
+}

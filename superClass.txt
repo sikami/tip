@@ -1,0 +1,41 @@
+JAVA
+
+Sample of subclass and superclass usage
+
+
+public class Superclass {
+
+    private String objectVariable;
+
+    public Superclass() {
+        this("Example");
+    }
+
+    public Superclass(String value) {
+        this.objectVariable = value;
+    }
+
+    public String toString() {
+        return this.objectVariable;
+    }
+}
+
+
+
+public class Subclass extends Superclass {
+
+    public Subclass() {
+        super("Subclass");
+    }
+}
+
+
+Superclass sup = new Superclass();
+Subclass sub = new Subclass();
+
+System.out.println(sup);
+System.out.println(sub);
+
+
+>Example
+>Subclass

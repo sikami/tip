@@ -1,0 +1,11 @@
+JAVA
+
+HashSet
+
+-- if implemented, needs override method equals, hashCode
+-- object or values put into hashshet is unordered, and cannot be duplicate (key)
+
+hashcode bisa pakai default hashcode dari intelij / ide lainnya.
+
+
+

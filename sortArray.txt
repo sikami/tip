@@ -1,0 +1,12 @@
+JAVA
+
+Sorting array
+
+-can only sort arrays 
+ex:
+int[] numbers
+String[] words
+
+use:
+Arrays.sort(numbers)
+Arrays.sort(words)

@@ -1,0 +1,55 @@
+JAVA
+
+converting Java object to JSON
+
+-- writing serialized object to string variable
+
+Address johnDoeAddress = new Address("100 Elm Way", "Foo City", "NJ", "01234");
+Person johnDoe = new Person("John", "Doe", null, 29, true, johnDoeAddress);
+
+ObjectMapper mapper = new ObjectMapper();
+String json = mapper.writeValueAsString(johnDoe);
+System.out.println(json);
+
+-- writing serialised object to a file
+
+Address johnDoeAddress = new Address("100 Elm Way", "Foo City", "NJ", "01234");
+Person johnDoe = new Person("John", "Doe", null, 29, true, johnDoeAddress);
+ObjectMapper mapper = new ObjectMapper();
+mapper.writeValue(new File("john.json"), johnDoe);
+
+
+-- deserializing JSON to java object
+
+String json = "{\"firstName\":\"John\",\"lastName\":\"Doe\",\"alias\":\"Jay\","
+    + "\"age\":29,\"address\":{\"street\":\"100 Elm Way\",\"city\":\"Foo City\","
+    + "\"state\":\"NJ\",\"zipCode\":\"01234\"},\"isMale\":true}";
+​
+
+ObjectMapper mapper = new ObjectMapper();
+Person johnDoe = mapper.readValue(json, Person.class);
+System.out.println(johnDoe);
+
+It is important to note that there are two requirements that the deserialized type (or any recursively deserialized types) must have:
+
+The class must have a default constructor
+The class must have setters for each of the fields
+
+-- deserializing collections
+
+
+String json = "[{\"firstName\":\"John\",\"lastName\":\"Doe\",\"age\":29,"
+    + "\"address\":{\"street\":\"100 Elm Way\",\"city\":\"Foo City\","
+    + "\"state\":\"NJ\",\"zipCode\":\"01234\"},\"isMale\":true},"
+    + "{\"firstName\":\"Jane\",\"lastName\":\"Doe\",\"age\":27,"
+    + "\"address\":{\"street\":\"200 Boxer Road\",\"city\":\"Bar City\","
+    + "\"state\":\"NJ\",\"zipCode\":\"09876\"},\"isMale\":false}]";
+​
+
+ObjectMapper mapper = new ObjectMapper();
+@SuppressWarnings("unchecked")
+List&lt;Person&gt; people = (List&lt;Person&gt;) mapper.readValue(json, List.class);
+​
+System.out.println(people);
+
+
