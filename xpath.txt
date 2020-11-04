@@ -1,0 +1,9 @@
+XPATH
+
+
+/	: select from root node
+//	: select node from document from the current node that match selection, no matter where they are
+.	: select current node
+..	: select parent of current node
+@	: select attributes
+

@@ -1,0 +1,25 @@
+SELENIUM
+
+create webdriver
+download webdriver for FireFox (easier with geckodriver --google it)
+
+initialize Geckodriver
+	Webdriver webdriver = new FirefoxDriver();
+
+if you want to run headless, init this first
+	FirefoxOptions options = new FirefoxOptions();
+	options.addArguments("-headless");
+
+find elements:
+	webDriver.findElement(By.id("departure_region_id"));
+	webDriver.findElement(By.className("departure_region_id"));
+
+find web elements:
+	WebElement dateDeparture = webDriver.findElement(By.id("departure_date"));
+        dateDeparture.clear();
+        dateDeparture.sendKeys(getDepDate());
+
+make Selenium to wait:
+	webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+
