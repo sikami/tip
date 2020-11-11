@@ -22,4 +22,9 @@ find web elements:
 make Selenium to wait:
 	webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
+make selenium to wait until certain web element appear:
+
+	WebDriverWait wait = new WebDriverWait(driver,30);
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'COMPOSE')]")));
+
 

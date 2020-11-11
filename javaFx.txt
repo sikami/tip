@@ -66,3 +66,25 @@ button.setOnAction((event) -> {
     System.out.println("Pressed!");
 });
 
+
+
+--------
+launch in main
+--------
+
+launch(Gui.class);
+launch(namakelasnya.class);
+
+-------
+Set allignment of Label / text
+------
+Label title = new Label("Lis's Scraper");
+title.setStyle("-fx-font-weight: bold");
+
+Label pbGa = new Label("Padang Bai to Gili Air");
+pbGa.setTextFill(Color.BLACK);
+
+	2020-12-20
+
+
+
