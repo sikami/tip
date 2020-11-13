@@ -25,4 +25,7 @@ String word = "equisterian";
 int length = word.length();
 > 11
 
+to delete last character of a string use:
+
+String.sunstring(beginIndex, endIndex);
 
