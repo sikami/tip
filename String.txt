@@ -29,3 +29,6 @@ to delete last character of a string use:
 
 String.sunstring(beginIndex, endIndex);
 
+to delete trailing white space of  string ex: "Hello World  "
+use trim()
+
