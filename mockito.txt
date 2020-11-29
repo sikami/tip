@@ -1,0 +1,63 @@
+JAVA
+
+MOCKITO
+fake mock object (stub)
+
+Maven dependency:
+ <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>3.6.28</version>
+        </dependency>
+
+-----------------
+Contoh kelas CALC 
+-----------------
+
+public class Calc {
+
+    CalcService calcService;
+
+    public Calc (CalcService calcService) {
+        this.calcService = calcService;
+    }
+
+ public int perform(int x, int y) {
+       return calcService.add(x,y) * x;
+    }
+
+
+-----------------
+IN TEST:
+-----------------
+instantite the class that needs mocking:
+
+ private static CalcService calcService = Mockito.mock(CalcService.class);
+
+@Test
+    public void testAdd() {
+        when(calcService.add(2,2)).thenReturn(4); ---> true result if we are using the object
+        assertEquals(8, c.perform(2,2));
+        verify(calcService).add(2,2); ----------> verify if we are invoking mockito
+    }
+
+
+-----------------
+LIST / LINKED LIST STUB
+-----------------
+
+Mock concrete classes:
+LinkedList mockList = mock(LinkedList.class);
+List anotherMock = mock(List.class)
+
+when(mockList.get(0)).thenReturn("first");
+when(mockList.get(1)).thenThrow(new RuntimeException());
+
+----------------------
+HOW TO VERIFY IF WE INVOKE MOCKITO?
+-----------------------
+verify(mockList).get(0);
+
+
+
+

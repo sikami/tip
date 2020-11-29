@@ -1,0 +1,28 @@
+JAVA
+
+Telegram Bot
+
+to create Telegram Bot, first need to download the library or find in the internet how to do it.
+
+1. get library TelegramPollingBot
+2. extends TelegramPollingBot in the class, then implement
+	- public String getBotUsername() --->name of your BOT
+		{return "testbot"}
+	- public String getBotToken() ---> Bot token, you can get on Telegram by searching @Botfather
+		{return "1336596386:AAHtuEOIe5X_8zi_V5BfN8MaN7uE7Jh9BwE";}
+	- public void onUpdateReceived(Update update) ---->this is where your code is, what you want to do with the bot
+		{
+			SendMessage message = new SendMessage();
+		        message.setChatId(update.getMessage().getChatId().toString());
+		        if (update.hasMessage() && update.getMessage().getText().equals("/start")) {
+            			message.setText("Hi, I am your book review Bot. Please type in the book title. If you wonder where the review is 						coming from, it is from Goodreads!");
+
+
+SendMessage class is to send message
+after you execute SendMessage, then you have to execute the message.
+
+ try {
+            execute(message);
+     } catch (TelegramApiException e) {
+            e.printStackTrace();
+     }
