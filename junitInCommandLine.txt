@@ -1,0 +1,6 @@
+JAVA
+
+compile and run Junit test in command line
+
+use -cp
+1. javac -cp <junit-jar-file>;. TestClass.java TestClass2.java   -->This will compile 2 test files at  the same time

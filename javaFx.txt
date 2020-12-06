@@ -88,3 +88,4 @@ pbGa.setTextFill(Color.BLACK);
 
 
 
+examples of gui: https://www.developer.com/java/data/working-with-javafx-ui-layouts.html
