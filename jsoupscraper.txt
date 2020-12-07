@@ -1,0 +1,110 @@
+JAVA
+
+JSOUP 
+Jsoup loads html and build corresponding DOM tree.
+Only intrepret HTML not javascript. Changes to Dom that take place after page loads Javascipt, will not be seen in jsoup.
+
+guarantees parsing HTML by loading String, InputStream, File or URL.
+
+ex: 
+String blogUrl = "https://spring.io/blog";
+Document doc = Jsoup.connect(blogUrl).get();
+
+-----------
+Maven Dependency
+-----------
+
+<dependency>
+    <groupId>org.jsoup</groupId>
+    <artifactId>jsoup</artifactId>
+    <version>1.10.2</version>
+</dependency>
+
+
+-----------
+get() represents HTTP get call. 
+post() represents HTTP post call.
+(can use post() in a method that accepts HTTP method type as param)
+
+-------------
+To detect abnormal status 404
+-------------
+catch with HttpStatusException
+ex:
+try {
+   Document doc404 = Jsoup.connect("https://spring.io/will-not-be-found").get();
+} catch (HttpStatusException ex) {
+   //...
+}
+
+---------------
+customized connection
+---------------
+
+ex:
+Connection connection = Jsoup.connect(blogUrl);
+connection.userAgent("Mozilla");
+connection.timeout(5000);
+connection.cookie("cookiename", "val234");
+connection.cookie("cookiename", "val234");
+connection.referrer("http://google.com");
+connection.header("headersecurity", "xyz123");
+Document docCustomConn = connection.get();
+
+or you can chain the methods:
+
+Document docCustomConn = Jsoup.connect(blogUrl)
+  .userAgent("Mozilla")
+  .timeout(5000)
+  .cookie("cookiename", "val234")
+  .cookie("anothercookie", "ilovejsoup")
+  .referrer("http://google.com")
+  .header("headersecurity", "xyz123")
+  .get();
+
+------------------
+Selecting
+-----------------
+Document select receives String (same selector syntax as css) returns Elements. can be empty BUT NOT NULL.
+
+ex:
+Elements links = doc.select("a");
+Elements sections = doc.select("section");
+Elements logo = doc.select(".spring-logo--container");
+Elements pagination = doc.select("#pagination_control");
+Elements divsDescendant = doc.select("header div");
+Elements divsDirect = doc.select("header > div");
+
+or with explicit methods
+
+Element pag = doc.getElementById("pagination_control");
+Elements desktopOnly = doc.getElementsByClass("desktopOnly");
+
+-------------------
+Traversing
+-------------------
+
+Jsoup operates on Document, on a set of Elements, specific Element.
+use 0-based index in Element set to jump access.
+
+ex:
+Element firstSection = sections.first();
+Element lastSection = sections.last();
+Element secondSection = sections.get(2);
+Elements allParents = firstSection.parents();
+Element parent = firstSection.parent();
+Elements children = firstSection.children();
+Elements siblings = firstSection.siblingElements();
+
+Anything of type Elements can be iterated.
+ex:
+sections.forEach(el -> System.out.println("section: " + el));
+
+or make element selection restricted to previous selection
+ex:
+Elements sectionParagraphs = firstSection.select(".paragraph");
+
+
+
+
+
