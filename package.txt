@@ -1,0 +1,12 @@
+JAVA 
+
+how to create package
+
+------
+go to Project Structure
+Select Artifacts
+and then click yes
+then build > build artifacts
+
+
+
