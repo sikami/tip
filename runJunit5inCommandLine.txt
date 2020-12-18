@@ -19,3 +19,12 @@ $ java -jar junit-platform-console-standalone-1.3.1.jar --class-path out --scan-
 └─ JUnit Vintage ✔
 
 Test run finished after 67 ms
+
+
+===================
+COMPILE & RUN JAVA in CLI
+===================
+---- if has dependencies (HAS TO HAVE " ", and :, then ., to specify the current directory)
+javac -cp "haha.jar:haha1.jar:." main.java
+java -cp "haha.jar:haha1.jar:." main
+
