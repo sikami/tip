@@ -27,4 +27,6 @@ COMPILE & RUN JAVA in CLI
 ---- if has dependencies (HAS TO HAVE " ", and :, then ., to specify the current directory)
 javac -cp "haha.jar:haha1.jar:." main.java
 java -cp "haha.jar:haha1.jar:." main
+java -cp "../deps/mail.jar:../deps/postgresql-42.2.18.jar:../deps/jsoup-1.13.1.jar:." Main.Main 
+
 

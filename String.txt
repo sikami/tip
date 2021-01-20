@@ -32,3 +32,5 @@ String.sunstring(beginIndex, endIndex);
 to delete trailing white space of  string ex: "Hello World  "
 use trim()
 
+To split a string and put it in ArrayList use this:
+Arrays.asList
